@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación al Evento Feria del Pizzero 2025</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .error-message {
+            color: #ff0000;
+            font-size: 18px;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <script>
+            // Función para obtener parámetros de la URL
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Obtener los parámetros name y email
+            var personName = getUrlParameter('name');
+            var personEmail = getUrlParameter('email');
+            
+            // Verificar si ambos parámetros existen
+            if (personName && personEmail) {
+                // Crear el enlace con los parámetros
+                var targetUrl = 'https://studio--gafete-generator.us-central1.hosted.app/?name=' + encodeURIComponent(personName) + '&email=' + encodeURIComponent(personEmail);
+                
+                // Mostrar la imagen con el enlace
+                document.write('<a href="' + targetUrl + '" target="_blank" style="text-decoration: none;">');
+                document.write('<img src="https://bafardigitalizacion.github.io/gafetesqr/eveno.jpg" width="900" height="2159" style="display: block; margin: 0 auto; text-decoration: none;" title="Haz clic y asiste" alt="Haz clic y asiste">');
+                document.write('</a>');
+            } else {
+                // Mostrar mensaje de error si faltan parámetros
+                document.write('<div class="error-message">La información no puede mostrarse por falta de parámetros.</div>');
+            }
+        </script>
+    </div>
+</body>
+</html>
